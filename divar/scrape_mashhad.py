@@ -11,8 +11,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 
 # Base URL
-MAIN_PAGE_URL = "https://divar.ir/s/tehran/rent-residential"
-SAVE_FILE = "divar_tehran_post_ids.csv"  # File to save post IDs
+MAIN_PAGE_URL = "https://divar.ir/s/mashhad/rent-residential"
+SAVE_FILE = "divar_post_ids.csv"  # File to save post IDs
 
 chrome_path = "/home/mohammad/chrome-linux64/chrome"  # Adjust path if needed
 
@@ -77,7 +77,7 @@ def get_all_post_ids():
             new_height = driver.execute_script("return document.body.scrollHeight")
             if new_height == last_height:
                 scroll_attempts += 1
-                if scroll_attempts >= 10:  # Stop if no new data appears after 3 attempts
+                if scroll_attempts >= 3:  # Stop if no new data appears after 3 attempts
                     break
             else:
                 scroll_attempts = 0  # Reset attempts if new content loads
